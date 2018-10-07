@@ -1,0 +1,53 @@
+﻿@model WebApplication2.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>會員資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("帳號: ")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Account)
+        </dd>
+
+        <dt>
+            @Html.Label("密碼:" )
+        </dt>
+        <dd>
+
+            @Html.ActionLink("修改密碼", "ModPassword", new { Account = Model.Account })
+        </dd>
+
+        <dt>
+            @Html.Label("名字: ")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Uname)
+        </dd>
+
+        <dt>
+            @Html.Label("電話: ")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.Label("地址: ")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { Account = Model.Account }, new { @class = "btn btn-warning" }) 
+    @Html.ActionLink("回首頁", "Index","Home",null, new { @class = "btn btn-warning" })
+</p>

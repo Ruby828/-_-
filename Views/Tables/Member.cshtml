@@ -1,0 +1,18 @@
+﻿@model WebApplication2.Models.User
+
+@{
+    ViewBag.Title = "Member";
+}
+
+<h2>會員專區</h2>
+
+<p>
+    <a href='@Url.Action("Login", "Tables")' class="btn btn-warning ">會員登入</a>
+
+</p>
+
+
+<p>
+    <a href='@Url.Action("Create", "Tables")' class="btn btn-warning">加入會員</a>
+
+</p>

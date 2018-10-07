@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.Label("帳號: ")
+        <input type="text" name="FormUsername" /><br />
+        @Html.Label("密碼: ")
+        <input type="text" name="FormPassword" />
+    </div>
+    <div>
+        使用者輸入的帳號為:@ViewBag.username<br />
+        使用者輸入的密碼為:@ViewBag.password<br />
+        訊息:@ViewBag.massage<br />
+        儲存的密碼:@ViewBag.savedHPV<br />
+        Hash後的輸入密碼:@ViewBag.inputHPV
+    </div>
+    <input type="submit" value="登入" />
+}

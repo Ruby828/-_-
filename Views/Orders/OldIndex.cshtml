@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApplication2.Models.Order>
+
+@{
+    ViewBag.Title = "OldIndex";
+}
+<h2>@ViewBag.Account 的歷史訂單</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payed)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Pname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Account)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payed)
+                </td>
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { Oid = item.Oid }) |*@
+                    @Html.ActionLink("Details", "Details", new { Oid = item.Oid }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Delete", "Delete", new { Oid = item.Oid }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

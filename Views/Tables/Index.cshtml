@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication2.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>會員列表</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Uid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {      //將User內的資料顯示出來
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+           
+            <div class="btn-group btn-group-justified">
+                <a href='@Url.Action("Edit", "Tables")' class="btn btn-primary">Edit</a>
+                @*<a href='@Url.Action("Details", "Tables")' class="btn btn-primary">Details</a>
+                <a href='@Url.Action("Delete", "Tables")' class="btn btn-primary">Delete</a>*@
+            </div>
+            @*@Html.ActionLink("Edit", "Edit", new { Account=item.Account}) |
+            @Html.ActionLink("Details", "Details", new { Account = item.Account }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Uid })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,31 @@
+﻿@model WebApplication2.Models.Order
+
+@{
+    ViewBag.Title = "Create Order";
+}
+
+<h2>需求數量</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.Label("帳號:  ");
+        @ViewBag.Account<br />
+    </div>
+    <div>
+        @Html.Label("PIZZA口味:  ");
+       @ViewBag.Pname<br />
+    </div>
+    <div>
+        @Html.Label("數量:  ")
+        <input type="text" name="FormNum" /><br />
+    </div>
+    <div>
+        @Html.Label("時間:  ") 
+        @ViewBag.dt <br />
+    </div>
+
+    <input type="submit" value="確定" />
+}

@@ -1,0 +1,145 @@
+﻿@model IEnumerable<WebApplication2.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>歡迎光臨</h2>
+<style>
+    .city {
+        background-color: tomato;
+        color: white;
+        padding: 10px;
+    }
+</style>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 產品介紹</title>
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("產品介紹", "Index", "Products")</li>
+                    <li>@Html.ActionLink("TOP 10", "Index", "Products")</li>
+                    <li>@Html.ActionLink("樂享點心", "Index", "Products")</li>
+                    <li>@Html.ActionLink("飲料暢飲", "Index", "Products")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    <h1>
+        <a href='@Url.Action("Topfive", "Products")' class="btn btn-danger btn-lg">TOP 5</a>
+
+    </h1>
+
+    <table class="table">
+        <tr>
+            <th class="city">
+                @Html.DisplayNameFor(model => model.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Show)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hot)
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Show)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hot)
+                </td>
+
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Pid }) |*@
+                    @Html.ActionLink("詳細介紹", "Details", new { Pid = item.Pid }, new { @class = "btn btn-warning" })
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Pid })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+    <!--content=========================================================================================================================-->
+    <div class="content">
+        <div class="container_12">
+
+
+            <div class="tabs tb gallery">
+
+                <div class="div-tabs">
+                    <div id="tab-1" class="tab-content gallery1">
+                        <div class="grid_3">
+                            <a href="~/images/index/1-1.jpg" class="gal"><img src="~/images/index/1.jpg" alt=""><span></span></a>
+                            <span class="col3"><a href="#">龍蝦楓培根</a></span> $ 739.0
+
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+
+                            <a href="~/images/index/2-1.jpg" class="gal"><img src="~/images/index/2.jpg" alt=""><span></span></a>
+                            <span class="col3"><a href="#">野菇燻雞 </a></span> $ 699.0
+
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+
+                            <a href="~/images/index/3-1.jpg" class="gal"><img src="~/images/index/3.jpg" alt=""><span></span></a>
+                            <span class="col3"><a href="#">經典臘腸 </a></span> $ 699.0
+
+                        </div>
+                        <br />
+
+                        <div class="grid_3">
+                            <a href="~/images/index/4-1.jpg" class="gal"><img src="~/images/index/4.jpg" alt=""><span></span></a>
+                            <span class="col3"><a href="#">起司原味 </a></span> $ 659.0
+
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                            <a href="~/images/index/5-1.jpg" class="gal"><img src="~/images/index/5.jpg" alt=""><span></span></a>
+                            <span class="col3"><a href="#">犇牛天婦羅炸蝦(流金) </a></span> $ 839.0
+
+                            &emsp;&emsp;
+
+
+                            <a href="~/images/index/6-1.jpg" class="gal"><img src="~/images/index/6.jpg" alt=""><span></span></a>
+                            <span class="col3"><a href="#">皇朝海龍宴 </a></span> $ 735.0
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================================================================================================================================-->
+
+
+</body>
+</html>

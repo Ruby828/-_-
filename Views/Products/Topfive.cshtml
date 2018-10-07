@@ -1,0 +1,89 @@
+﻿
+@model IEnumerable<WebApplication2.Models.Product>
+
+@{
+    ViewBag.Title = "Topfive";
+}
+
+<h2>熱門首推</h2>
+<style>
+    .city {
+        background-color: tomato;
+        color: white;
+        padding: 10px;
+    }
+</style>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 產品介紹</title>
+  
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+               
+             
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("產品介紹", "Index", "Products")</li>
+                    <li>@Html.ActionLink("TOP 5", "Topfive", "Products")</li>
+                    <li>@Html.ActionLink("樂享點心", "Index", "Products")</li>
+                    <li>@Html.ActionLink("飲料暢飲", "Index", "Products")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th class="city">
+                @Html.DisplayNameFor(model => model.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Show)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hot)
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Show)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hot)
+                </td>
+
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Pid }) |*@
+                    @Html.ActionLink("詳細介紹", "Details", new { Pid = item.Pid }, new { @class = "btn btn-warning" })
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Pid })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model WebApplication2.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Pname)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Show)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Show)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hot)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hot)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("我要購買","Create", "Orders" ,new { Pid = Model.Pid }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("選別的", "Index", null,new { @class = "btn btn-warning" })
+</p>

@@ -1,0 +1,86 @@
+﻿@model WebApplication2.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>加入會員</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="InputAccount">Account</label>
+                <font for="InputAccount" style="color: red">**</font>
+                @Html.EditorFor(model => model.Account, new { htmlAttributes = new { id = "InputAccount", @class = "form-control", placeholder = "Enter Account" } })
+
+                @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="Password">Password</label>
+                <font for="Password" style="color: red">**</font>
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { id = "Password", @class = "form-control", placeholder = "Enter Password" } })
+
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="Uname">Uname</label>
+                <font for="Uname" style="color: red">**</font>
+                @Html.EditorFor(model => model.Uname, new { htmlAttributes = new { id = "Uname", @class = "form-control", placeholder = "Enter Uname" } })
+
+                @Html.ValidationMessageFor(model => model.Uname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="Phone">Phone</label>
+                <font for="Phone" style="color: red">**</font>
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { id = "Phone", @class = "form-control", placeholder = "Enter Phone" } })
+
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="Address">Address</label>
+                <font for="Address" style="color: red">**</font>
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { id = "Address", @class = "form-control", placeholder = "Enter Address" } })
+
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+
+                <font style="color: red" size="5">**為必填</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary">
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("回首頁", "index","home")
+</div>
+

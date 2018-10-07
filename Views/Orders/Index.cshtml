@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebApplication2.Models.Order>
+
+@{ 
+    ViewBag.Title = "Index";
+}
+
+<h2>購物車</h2>
+
+<div>
+    @*@ViewBag.message<br />*@
+    @ViewBag.Account<br />
+    @ViewBag.Pname
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payed)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model )
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Pname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Account)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>   
+            <td>
+                @Html.DisplayFor(modelItem => item.Payed)
+            </td>
+        
+            <td>
+                @Html.ActionLink("修改", "Edit", new { Oid = item.Oid }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("詳細資料", "Details", new { Oid = item.Oid }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("刪除此筆訂單", "Delete", new { Oid = item.Oid }, new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+    }
+
+     </table>
+    <p>
+        @Html.ActionLink("結帳", "pay","Orders", new { @class = "btn btn-warning" }) 
+    </p>
+}

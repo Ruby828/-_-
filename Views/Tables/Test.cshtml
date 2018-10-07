@@ -1,0 +1,39 @@
+﻿@model WebApplication2.Models.User
+@{
+    ViewBag.Title = "Test";
+}
+<h2>您好 : )</h2>
+    <div class="btn-group">
+        @Html.ActionLink("個人資料", "Details",null, new { @class = "btn btn-warning" })  @*可以看個人資料*@
+        @Html.ActionLink("目前訂單查詢", "Index", "Orders",null, new { @class = "btn btn-warning" })  @*可以目前訂單*@
+        @Html.ActionLink("歷史訂單查詢", "OldIndex", "Orders",null, new { @class = "btn btn-warning" })  @*可以目前訂單*@
+    </div>
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - 我的網路訂餐系統</title>
+ 
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                  
+                 
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+                        <li>@Html.ActionLink("關於", "About", "Home")</li>
+                        <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("登出", "Logout", "Tables")</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
